@@ -1,42 +1,25 @@
 <template>
-  <div>
+  <UPage v-if="form && form.form">
     <UPageHero
-      title="Mavis Form"
-      description="The form-engine for the Mavis-Ecosystem. Create awesome forms with ease and share them."
-      :links="[
-        {
-          label: 'Get started',
-          to: 'https://ui.nuxt.com/docs/getting-started/installation/nuxt',
-          target: '_blank',
-          trailingIcon: 'i-lucide-arrow-right',
-          size: 'xl',
-        },
-      ]"
+      :title="form.form.name"
+      description="Um einen reibungslosen Ablauf für das GameJam-Wochenende zu garantieren benötigen wir von allen Teilnehmern, die vorort teilnehmen wollen, ein paar Daten. Vor- und Nachname werden ans Gebäudemanagment weitergegeben."
     />
-
-    <UPageSection>
-      <UPageCTA
-        title="Ready to build your next Nuxt app?"
-        description="Join thousands of developers building with Nuxt and Nuxt UI. Get this template and start shipping today."
-        variant="subtle"
-        :links="[
-          {
-            label: 'Start building',
-            to: 'https://ui.nuxt.com/docs/getting-started/installation/nuxt',
-            target: '_blank',
-            trailingIcon: 'i-lucide-arrow-right',
-            color: 'neutral',
-          },
-          {
-            label: 'View on GitHub',
-            to: 'https://github.com/nuxt-ui-templates/starter',
-            target: '_blank',
-            icon: 'i-simple-icons-github',
-            color: 'neutral',
-            variant: 'outline',
-          },
-        ]"
-      />
-    </UPageSection>
-  </div>
+    <UPageBody><FormBase :form="form.form" :use_id="form.id" /></UPageBody>
+  </UPage>
 </template>
+<script setup lang="ts">
+import { useGetTextBlocks } from "~/composables/useTranslation";
+
+const form: Ref<undefined | FormUse> = ref(
+  await useGetForm("171a152e-f275-4c7e-a37d-e0392e1e46b9")
+);
+if (form.value && form.value.form && form.value.form.publisher_form) {
+  const translations = await useGetTextBlocks(
+    form.value.form.publisher_form.publisher_id,
+    "de"
+  );
+  console.log(translations);
+}
+
+useSeoMeta({ title: "DETTA Anmeldung" });
+</script>

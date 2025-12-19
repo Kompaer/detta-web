@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="w-full dark:bg-neutral-800 bg-neutral-100 p-4 flex flex-col space-y-2"
-  >
+  <div class="w-full p-4 flex flex-col space-y-2">
     <div class="flex flex-col">
       <div class="font-bold text-lg">
         <BaseText

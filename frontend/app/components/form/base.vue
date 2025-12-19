@@ -1,7 +1,9 @@
 <template>
-  <div class="md:w-1/2 mx-auto" v-if="!submitted">
+  <div class="md:w-1/2 mx-auto p-4" v-if="!submitted">
     <UForm :schema="schema" :state="state">
-      <div class="flex flex-col rounded-2xl overflow-hidden">
+      <div
+        class="flex flex-col rounded-2xl overflow-hidden space-y-4 dark:bg-neutral-800 bg-neutral-100"
+      >
         <FormFieldBase
           v-for="field in form.fields"
           :publisher="form.publisher_form?.publisher_id"

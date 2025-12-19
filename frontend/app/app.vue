@@ -1,4 +1,6 @@
-<script setup>
+<script setup lang="ts">
+import { format } from "date-fns";
+
 useHead({
   meta: [{ name: "viewport", content: "width=device-width, initial-scale=1" }],
   link: [{ rel: "icon", href: "/favicon.ico" }],
@@ -20,10 +22,66 @@ useSeoMeta({
   twitterImage: "https://ui.nuxt.com/assets/templates/nuxt/starter-light.png",
   twitterCard: "summary_large_image",
 });
+
+const timeRemaining = ref(0);
+const timerInterval = ref<any | null>(null);
+const isFinished = ref(false);
+
+const calculateTime = () => {
+  const now = new Date().getTime();
+  const target = new Date(1767999599000).getTime();
+  const distance = target - now;
+
+  if (distance < 0) {
+    timeRemaining.value = 0;
+    isFinished.value = true;
+    stopTimer();
+  } else {
+    timeRemaining.value = distance;
+  }
+};
+
+const stopTimer = () => {
+  if (timerInterval.value) {
+    clearInterval(timerInterval.value);
+    timerInterval.value = null;
+  }
+};
+
+const days = computed(() =>
+  Math.floor(timeRemaining.value / (1000 * 60 * 60 * 24))
+);
+const hours = computed(() =>
+  Math.floor((timeRemaining.value % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+);
+const minutes = computed(() =>
+  Math.floor((timeRemaining.value % (1000 * 60 * 60)) / (1000 * 60))
+);
+const seconds = computed(() =>
+  Math.floor((timeRemaining.value % (1000 * 60)) / 1000)
+);
+
+// 6. Lifecycle Hooks
+onMounted(() => {
+  calculateTime();
+  timerInterval.value = setInterval(calculateTime, 1000);
+});
+
+onUnmounted(() => {
+  stopTimer();
+});
 </script>
 
 <template>
   <UApp>
+    <UBanner close>
+      <template #title
+        >Die Anmeldung läuft noch <span class="font-mono">{{ days }}</span> Tage
+        <span class="font-mono">{{ hours }}</span> Stunden
+        <span class="font-mono">{{ minutes }}</span> Minuten und
+        <span class="font-mono">{{ seconds }}</span> Sekunden
+      </template>
+    </UBanner>
     <UHeader>
       <template #left>
         <NuxtLink to="/" class="h-8!"
@@ -31,8 +89,6 @@ useSeoMeta({
             src="https://image.mavis-app.de/backend/img/abb775c7-2f67-465c-b602-4f32f5e0097d/thumbnail_webp.webp"
             class="h-10 object-cover"
         /></NuxtLink>
-
-        <TemplateMenu />
       </template>
 
       <template #right>
