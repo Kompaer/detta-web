@@ -2,7 +2,7 @@ version: "3"
 
 services:
   frontend:
-    container_name: manic_frontend
+    container_name: detta_frontend
     restart: always
     build:
       context: ./frontend
@@ -12,14 +12,14 @@ services:
     environment:
       - TZ=Europe/Berlin
     networks:
-      - manicweb-network
+      - dettaweb-network
 
   
 
   proxy:
     image: nginx:latest
     restart: always
-    container_name: manicweb_proxy
+    container_name: dettaweb_proxy
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
     expose:
@@ -27,7 +27,7 @@ services:
     depends_on:
       - frontend
     networks:
-      - manicweb-network
+      - dettaweb-network
       - traefik-main
     environment:
       - TZ=Europe/Berlin
@@ -35,5 +35,5 @@ services:
 
 networks:
   traefik-main:
-  manicweb-network:
+  dettaweb-network:
     driver: bridge

@@ -14,7 +14,7 @@
         </UFormField>
       </div>
       <div class="py-4 flex justify-end">
-        <UButton @click="submit" :disabled="lock_submit">Submit</UButton>
+        <UButton @click="submit" :disabled="lock_submit">Anmelden</UButton>
       </div>
     </UForm>
   </div>

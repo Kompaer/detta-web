@@ -41,7 +41,7 @@ useSeoMeta({
     </UHeader>
 
     <UMain>
-      <div class="stars fixed -z-10 bg-neutral-950"></div>
+      <div class="stars fixed -z-10 bg-neutral-200 dark:bg-neutral-950"></div>
       <NuxtPage />
     </UMain>
 
