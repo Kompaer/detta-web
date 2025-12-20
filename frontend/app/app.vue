@@ -9,17 +9,19 @@ useHead({
   },
 });
 
-const title = "Nuxt Starter Template";
+const title = "DETTA GameJam Anmeldung";
 const description =
-  "A production-ready starter template powered by Nuxt UI. Build beautiful, accessible, and performant applications in minutes, not hours.";
+  "Melde dich jetzt für den 09. DETTA GameJam an! Der GameJam ist ein Projekt des Fachschaftsrat Informatik und der Fakultät für Informatik an der Universität Duisburg Essen.";
 
 useSeoMeta({
   title,
   description,
   ogTitle: title,
   ogDescription: description,
-  ogImage: "https://ui.nuxt.com/assets/templates/nuxt/starter-light.png",
-  twitterImage: "https://ui.nuxt.com/assets/templates/nuxt/starter-light.png",
+  ogImage:
+    "https://image.mavis-app.de/backend/img/0069eae7-080d-4ebc-b610-1da2470e637a/big_webp.webp",
+  twitterImage:
+    "https://image.mavis-app.de/backend/img/0069eae7-080d-4ebc-b610-1da2470e637a/big_webp.webp",
   twitterCard: "summary_large_image",
 });
 
