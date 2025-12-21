@@ -1,13 +1,15 @@
 <template>
-  <div class="gap-4 w-full grid pt-2" :style="grid_style">
+  <div class="w-full! pt-2" :style="grid_style">
     <USelectMenu
       v-if="properties.allowMultiple"
       class="w-full"
       :items="items"
       :multiple="properties.allowMultiple"
       v-model="value_multiple"
+      :ui="{ content: 'w-full!', item: 'w-full!', arrow: 'w-full!' }"
+      placeholder="Bitte auswählen"
     />
-    <USelectMenu v-else class="w-full" :items="items" v-model="value_single" />
+    <USelectMenu v-else class="w-full!" :items="items" v-model="value_single" />
   </div>
 </template>
 <script setup lang="ts">
