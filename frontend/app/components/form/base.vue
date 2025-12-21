@@ -66,6 +66,9 @@ const schema = computed(() => {
       case FormFieldType.BOOLEAN:
         pipe = v.pipe(v.boolean("Kein Boolean"));
         break;
+      case FormFieldType.DATE:
+        pipe = v.pipe(v.string("Kein String"), v.isoTimestamp("Kein Datum"));
+        break;
     }
     if (pipe) {
       fields[field.id] = field.required ? pipe : v.optional(pipe);

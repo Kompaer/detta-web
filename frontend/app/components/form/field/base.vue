@@ -66,6 +66,12 @@
       :field="field"
       v-else-if="field.type === 'boolean'"
     />
+    <FormFieldDate
+      v-model="model"
+      :publisher="publisher"
+      :field="field"
+      v-else-if="field.type === 'date'"
+    />
   </div>
 </template>
 <script setup lang="ts">

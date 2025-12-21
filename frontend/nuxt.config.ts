@@ -16,10 +16,11 @@ export default defineNuxtConfig({
   mavis: {
     formUrl: "https://form.mavis-app.de/backend",
     backendUrl: "https://panel.mavis-app.de/cms",
-    publisherId: "publisher/976fc301-f997-4d6c-8dcc-ad998b1102ae",
+    publisherId: "a83da577-f51c-457c-83cf-bcb34ebb1474",
   },
 
   css: ["~/assets/css/main.css"],
+  ssr: true,
 
   routeRules: {
     "/": { prerender: true },

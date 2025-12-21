@@ -98,6 +98,8 @@ export enum FormFieldType {
   BUTTONS = "buttons",
   URL = "url",
   BOOLEAN = "boolean",
+  DATE = "date",
+  TIME = "time",
 
   //Non Inputs
   NI_HEADING = "ni_heading",
