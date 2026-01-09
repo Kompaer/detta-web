@@ -2,7 +2,7 @@
   <UPage v-if="form && form.form">
     <UPageHero
       :title="form.form.name"
-      description="Um einen reibungslosen Ablauf für das GameJam-Wochenende zu garantieren benötigen wir von allen Teilnehmern, die vorort teilnehmen wollen, ein paar Daten. Vor- und Nachname sowie Geburtsdatum werden ans Gebäudemanagment weitergegeben, damit die blauen Karten erstellt werden können."
+      description="Um einen reibungslosen Ablauf für das GameJam-Wochenende zu garantieren benötigen wir von allen Teilnehmern, die vorort teilnehmen wollen, ein paar Daten. Vor- und Nachname sowie Geburtsdatum werden ans Gebäudemanagment weitergegeben, damit wir euren Aufenthalt garantieren können."
     />
     <UPageBody><FormBase :form="form.form" :use_id="form.id" /></UPageBody>
   </UPage>

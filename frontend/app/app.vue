@@ -31,7 +31,7 @@ const isFinished = ref(false);
 
 const calculateTime = () => {
   const now = new Date().getTime();
-  const target = new Date(1767999599000).getTime();
+  const target = new Date(1768172399000).getTime();
   const distance = target - now;
 
   if (distance < 0) {
