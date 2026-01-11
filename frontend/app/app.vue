@@ -76,14 +76,6 @@ onUnmounted(() => {
 
 <template>
   <UApp>
-    <UBanner close>
-      <template #title
-        >Die Anmeldung läuft noch <span class="font-mono">{{ days }}</span> Tage
-        <span class="font-mono">{{ hours }}</span> Stunden
-        <span class="font-mono">{{ minutes }}</span> Minuten und
-        <span class="font-mono">{{ seconds }}</span> Sekunden
-      </template>
-    </UBanner>
     <UHeader>
       <template #left>
         <NuxtLink to="/" class="h-8!"
