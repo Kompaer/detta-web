@@ -35,7 +35,7 @@ const items = ref([
     date: "TBA",
     title: "Siegerehrung",
     description:
-      "Wir spielen alle Spiele gemeinsam un kühren den Sieger mit dem Jury und dem Community-Preis.",
+      "Wir spielen alle Spiele gemeinsam und kühren den Sieger mit dem Jury und dem Community-Preis.",
     icon: "i-material-symbols-trophy-rounded",
   },
 ]);
